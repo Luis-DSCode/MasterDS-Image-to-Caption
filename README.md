@@ -9,4 +9,4 @@ Danach generate_image_captions("Bildeingabe","Profilbilder") von Phi_image-to-ca
 "Profilbilder" sollte ein Ordner mit alles Bildern sein von Personen, welche erkannt werden sollen um diese der Beschreibung anzuhängen. Der Name eines Profilbildes muss mit der Person übereinstimmen.
 
 
-Legacy Ordner enthält alten Code und getestete Modelle
+Legacy Ordner enthält unwichtigen alten Code und zuvor getestete Modelle
