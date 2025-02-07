@@ -9,7 +9,7 @@ from transformers import AutoProcessor, AutoModelForCausalLM
 from CLIP_Classification import *
 import tempfile
 
-
+### Hier wird überprüft, welche Dateien in einem Ordner auch wirklich Bilder sind
 def is_valid_image(file_path):
     try:
         with Image.open(file_path) as img:
@@ -18,6 +18,7 @@ def is_valid_image(file_path):
     except (IOError, SyntaxError):
         return False
 
+### Diese Funktion ermöglicht es einzelne Bilder, Ordner mit Bildern oder Links zu Bildern als Eingabe zu verwenden
 def get_files(path):
     result = []
     
@@ -52,14 +53,15 @@ def get_files(path):
 
     return result
 
+### Lade den Ordner mit alles Profilbildern/Gesichtern von Personen die erkannt werden sollen
 def preload_faces(reference_folder):
     reference_faces = load_reference_faces(reference_folder)
     return reference_faces
 
+### Abhängig von der erkannten Bildkategorie durch die CLIP-Klassifikation, wird eine entsprechende Prompt gewählt
 def prompt_selector(image_class, faces, image_file):
-
     match image_class:
-        case "Stock":
+        case "Stock":    #Dieser Fall sollte nicht auftreten, ist aber hier als Fallback option
             prompt = f"<|image_1|>\nThis is a stock image. Generate a one-sentence description."
         case "Infographic":
             prompt = f"<|image_1|>\nThis is an infographic. The image file is titled '{os.path.basename(image_file)}'. Generate a short caption that describes the key information presented in the image."
@@ -71,7 +73,7 @@ def prompt_selector(image_class, faces, image_file):
             prompt = f"<|image_1|>\nThis is a logo. The image file is titled '{os.path.basename(image_file)}'. Generate a short caption."
     return prompt
 
-
+### Model Initialisieren
 def image_to_text_description(image_file, preloaded_reference_faces):
 
     list_of_faces = generate_string_of_faces(image_file, preloaded_reference_faces)
@@ -128,11 +130,11 @@ def image_to_text_description(image_file, preloaded_reference_faces):
     # Parse the response and split for readability
     #text_description = custom_split(text_description)
 
-    full_string_output = list_of_faces + "\n" + text_description
+    full_string_output = list_of_faces + "\n" + text_description  # Erkannte Personen und generierte Beschreibung zu einem String zusammenfügen
     #full_string_output = text_description
     return full_string_output
 
-
+### Hauptfunktion dieses Programms. Diese sollte aufgerufen und verwendet werden
 def generate_image_captions(input_path, reference_folder):
 
     preloaded_faces = preload_faces(reference_folder)
