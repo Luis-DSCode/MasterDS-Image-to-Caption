@@ -7,3 +7,6 @@ Danach generate_image_captions("Bildeingabe","Profilbilder") von Phi_image-to-ca
 "Bildeingabe" kann hierbei ein einzelnes Bild, ein Ordner mit mehreren Bildern oder ein Link zu einem Bild sein.
 
 "Profilbilder" sollte ein Ordner mit alles Bildern sein von Personen, welche erkannt werden sollen um diese der Beschreibung anzuhängen. Der Name eines Profilbildes muss mit der Person übereinstimmen.
+
+
+Legacy Ordner enthält alten Code und getestete Modelle
