@@ -1,4 +1,5 @@
 # MasterDS-Image-to-Caption
+[Ausführliche Readme bald hochgeladen]
 
 Zuerst Ordner mit Profilbilder erstellen. Entweder manuel oder automatisch mit face_download.py
 
