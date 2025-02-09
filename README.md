@@ -34,5 +34,25 @@ Beim ersten Aufruf werden die Safetensors des Modells Phi heruntergeladen. Danac
   face-recognition==1.3.0
   numpy==1.26.3
 
+## Verwendung
+1. Personen-Katalog erstellen
+- Automatisch mit face_download.py
+- Manuell: Ordner mit Profilbildern erstellen, wobei der Dateiname der Name der Person ist.
+
+2. Bildbeschreibung generieren:
+from Phi_image_to_caption import generate_image_captions
+
+# Beispiel: Einzelnes Bild
+```
+beschreibung = generate_image_captions("pfad/zum/bild.jpg", "pfad/zum/profilbilder")
+print(beschreibung)
+```
+# Beispiel: Ordner mit Bildern
+```
+beschreibungen = generate_image_captions("pfad/zum/bilder_ordner", "pfad/zum/profilbilder")
+for beschreibung in beschreibungen:
+    print(beschreibung)
+```
+
 ## Legacy
 Alter Code, andere Modelle und Tests
