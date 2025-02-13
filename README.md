@@ -15,7 +15,7 @@ Die Funktion **generate_image_captions("Bildeingabe", "Profilbilder")** in **Phi
 - **"Bildeingabe"**: Kann ein einzelnes Bild, ein Ordner mit mehreren Bildern oder ein Link zu einem Bild sein.
 - **"Profilbilder"**: Ein Ordner mit Bildern von Personen, die erkannt werden sollen. Der Dateiname muss mit dem Namen der Person übereinstimmen.
 
-Falls ein Bild als **STOCK-BILD** erkannt wird, gibt es momentan nur den String "Stock image" aus.
+Falls ein Bild als **STOCK-BILD** erkannt wird gibt es momentan nur den String "Stock image" aus.
 
 Beim ersten Aufruf werden die Safetensors des Modells Phi heruntergeladen. Danach kann das Modell lokal und offline verwendet werden.
 
